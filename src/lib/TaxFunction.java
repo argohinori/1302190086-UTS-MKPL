@@ -1,16 +1,11 @@
 package lib;
 
 public class TaxFunction {	
-	private final int notMarriedTax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
-	private final int marriedTax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
-	
 	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible, boolean isMarried, int numberOfChildren) {
 		
 		int tax = 0;
-		
-		if (numberOfMonthWorking > 12) {
-			System.err.println("More than 12 month working per year");
-		}
+		int notMarriedTax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - 54000000));
+		int marriedTax = (int) Math.round(0.05 * (((monthlySalary + otherMonthlyIncome) * numberOfMonthWorking) - deductible - (54000000 + 4500000 + (numberOfChildren * 1500000))));
 		
 		if (numberOfChildren > 3) {
 			numberOfChildren = 3;
@@ -22,12 +17,7 @@ public class TaxFunction {
 			tax = notMarriedTax;
 		}
 		
-		if (tax < 0) {
-			return 0;
-		}else {
-			return tax;
-		}
-			 
+		return tax;
 	}
 	
 }
