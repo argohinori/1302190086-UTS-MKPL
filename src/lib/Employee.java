@@ -6,17 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Date;
 
-public class Employee {
+public class Employee extends Person {
 	private enum GenderEmployee {
 		LAKI,
 		PEREMPUAN
 	}
-	
-	private String employeeId;
-	private String firstName;
-	private String lastName;
-	private String idNumber;
-	private String address;
+	private Person employee
 	
 	private Date joinedDate
 	private int monthWorkingInYear;
@@ -35,11 +30,12 @@ public class Employee {
 	private List<String> childIdNumbers;
 	
 	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, Date joinedDate, boolean isForeigner, GenderEmployee gender) {
-		this.employeeId = employeeId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.idNumber = idNumber;
-		this.address = address;
+		employee = new Person();
+		employee.employeeId = employeeId;
+		employee.firstName = firstName;
+		employee.lastName = lastName;
+		employee.idNumber = idNumber;
+		employee.address = address;
 		this.joinedDate = joinedDate
 		this.isForeigner = isForeigner;
 		this.gender = gender;
