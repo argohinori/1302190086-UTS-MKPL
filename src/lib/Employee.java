@@ -29,13 +29,9 @@ public class Employee extends Person {
 	private List<String> childNames;
 	private List<String> childIdNumbers;
 	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, Date joinedDate, boolean isForeigner, GenderEmployee gender) {
+	public Employee(Person employee, Date joinedDate, boolean isForeigner, GenderEmployee gender) {
 		employee = new Person();
-		employee.employeeId = employeeId;
-		employee.firstName = firstName;
-		employee.lastName = lastName;
-		employee.idNumber = idNumber;
-		employee.address = address;
+		this.setEmployee = employee;
 		this.joinedDate = joinedDate
 		this.isForeigner = isForeigner;
 		this.gender = gender;
@@ -48,6 +44,14 @@ public class Employee extends Person {
 	 * Fungsi untuk menentukan gaji bulanan pegawai berdasarkan grade kepegawaiannya (grade 1: 3.000.000 per bulan, grade 2: 5.000.000 per bulan, grade 3: 7.000.000 per bulan)
 	 * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
 	 */
+	
+	public Person getEmployee() {
+		return employee;
+	}
+	
+	public void setEmployee(Person employee) {
+		this employee = employee;
+	}
 	
 	public void setMonthlySalary(int grade) {	
 		if (grade == 1) {
